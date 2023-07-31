@@ -12,8 +12,11 @@ In this particular code I have pulled the tf-serving image from docker and used 
 
 4) In command prompt
 
-   docker run -p 8501:8501 --name=tensorflow_serving_container --mount type=bind, source=/path/to/model/directory, target=/models/MODEL_NAME -e MODEL_NAME=MODEL_NAME -t tensorflow/serving
+   docker run -p 8501:8501 --name=tensorflow_serving_container --mount type=bind, source=/path/to/model/directory, target=/models/MODEL_NAME -e MODEL_NAME=MODEL_NAME  -t tensorflow/serving
 
 5) Make requests using Python requests library 
 
-   url = "http://localhost:8501/v1/models/{MODEL_NAME}:predict"
+   url = "http://localhost:8501/v1/models/MODEL_NAME:predict"
+
+
+Here in source replace with the path where your model has been stored and MODEL_NAME with name of your model!
